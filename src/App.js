@@ -1,13 +1,11 @@
-import React from 'react'
-import CreateForm from './component/CreateForm';
-import { Container } from 'react-bootstrap';
-
-
+import React from "react";
+import LoginForm from "./component/LoginForm";
+import { Container } from "react-bootstrap";
 
 export default function App() {
-    return (
-        <Container>
-        <CreateForm />
-        </Container>
-    )
+  return (
+    <Container>
+      <LoginForm />
+    </Container>
+  );
 }
