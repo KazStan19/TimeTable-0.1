@@ -1,13 +1,13 @@
-import React from 'react'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Priminimas from './priminimas/Priminimas';
-import { Container } from 'react-bootstrap';
 
+import React from "react";
+import LoginForm from "./component/LoginForm";
+import Priminimas from './priminimas/Priminimas';
+import { Container } from "react-bootstrap";
 
 export default function App() {
-    return (
-        <Container>  
-            <Priminimas />
-        </Container>
-    )
-}
+  return (
+    <Container>
+      <LoginForm />
+      <Priminimas />
+    </Container>
+  );
