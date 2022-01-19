@@ -1,13 +1,12 @@
 
 import React from "react";
-import LoginForm from "./component/LoginForm";
-import Priminimas from './priminimas/Priminimas';
+import Screen from "./component/Screen";
 import { Container } from "react-bootstrap";
 
 export default function App() {
   return (
     <Container>
-      <LoginForm />
-      <Priminimas />
+      <Screen/>
+      
     </Container>
-  );
+  )}
