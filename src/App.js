@@ -1,10 +1,10 @@
 import React from 'react'
-import Test from './components/test'
-
+import Register from './components/Register/Register'
+import 'bootstrap/dist/css/bootstrap.min.css';
 export default function App() {
     return (
         <div>  
-            <Test />
+            <Register />
         </div>
     )
 }
