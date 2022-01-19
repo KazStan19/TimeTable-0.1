@@ -1,8 +1,17 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { Form, Button } from 'react-bootstrap'
+import Popup from './priminimas/Popup'
 export default function Register() {
+
+    const [buttonPopup, setButtonPopup] = useState(false)
+
+    
+
     return (
-        <Form className='mt-5'>
+
+        <>
+
+        <Form className='mt-5' onSubmit={(e) => {setButtonPopup(true); e.preventDefault()}}>
             <Form.Group className="mb-3 col-md-5 mx-auto" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
@@ -24,5 +33,17 @@ export default function Register() {
             </Form.Group>
             
         </Form>
+        
+        {
+
+            <Popup trigger={buttonPopup} setTrigger={setButtonPopup}> 
+            <h3>You successfully registreted</h3>
+            <p>You can now login into you account</p>
+            </Popup>
+
+        }
+
+        </>
+
     )
 }
