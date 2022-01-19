@@ -3,6 +3,7 @@ import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import CreateForm from "./CreateForm";
 import Priminimas from './priminimas/Priminimas';
+import Register from "./Register";
 
 
 const LoginForm = () => {
@@ -10,6 +11,7 @@ const LoginForm = () => {
   const [showLogin,setShowLogin] = useState(true)
   const [showCreateForm,setShowCreateForm] = useState(false)
   const [showForgotPassword,setShowForgotPassword] = useState(false)
+  const [showRegister,setShowRegister] = useState(false)
     
 
   function loginHandler(e){
@@ -25,6 +27,14 @@ const LoginForm = () => {
     e.preventDefault()
     setShowLogin(false)
     setShowForgotPassword(true)
+
+  }
+
+  function registerHandler(e){
+
+    e.preventDefault()
+    setShowLogin(false)
+    setShowRegister(true)
 
   }
 
@@ -48,7 +58,7 @@ const LoginForm = () => {
         </p>
         <p>
           {/* TRŪKSTA REGISTRACIJOS NUORODOS "#" VIETOJE*/}
-          Neturite paskyros? <a href="#">Registruokitės</a>
+          Neturite paskyros? <a href="#" onClick={registerHandler} >Registruokitės</a>
         </p>
         <p>
           {/* TRŪKSTA SLAPTAŽODŽIO ATSTATYMO NUORODOS "#" VIETOJE*/}
@@ -70,6 +80,14 @@ const LoginForm = () => {
     return(
 
       <Priminimas/>
+
+    )
+
+  }else if(showRegister){
+
+    return(
+
+      <Register/>
 
     )
 
