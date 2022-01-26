@@ -1,15 +1,15 @@
 import React,{useState} from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import CreateForm from "./CreateForm";
 import Priminimas from './priminimas/Priminimas';
 import Register from "./Register";
+import Table from "./Table";
 
 
 const LoginForm = () => {
   
   const [showLogin,setShowLogin] = useState(true)
-  const [showCreateForm,setShowCreateForm] = useState(false)
+  const [showTable,setshowTable] = useState(false)
   const [showForgotPassword,setShowForgotPassword] = useState(false)
   const [showRegister,setShowRegister] = useState(false)
     
@@ -18,7 +18,7 @@ const LoginForm = () => {
 
     e.preventDefault()
     setShowLogin(false)
-    setShowCreateForm(true)
+    setshowTable(true)
 
   }
 
@@ -67,11 +67,11 @@ const LoginForm = () => {
       </Form>
     </div>
   );}
-  else if(showCreateForm){
+  else if(showTable){
 
     return(
 
-      <CreateForm/>
+      <Table/>
 
     )
 
