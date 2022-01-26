@@ -13,9 +13,6 @@ const Table = () => {
         </Col>
       </Row>
       <Row className="border gx-0 bg-light">
-        <Col className="m-3">Pridėkitę atliktą darbą</Col>
-      </Row>
-      <Row className="border gx-0 bg-light">
         <Col className="m-3 bg-light">Duomenų filtravimas: </Col>
         <Col className="m-3">
           <select class="form-select-sm" aria-label="Default select example">
