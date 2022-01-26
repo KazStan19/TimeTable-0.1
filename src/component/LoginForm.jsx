@@ -1,15 +1,17 @@
 import React,{useState} from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 
 
 const LoginForm = () => {
   
+  const goTo = useNavigate()
 
-  
  return (
     <div className="color-overlay d-flex justify-content-center align-items-center">
-      <Form className="rounded p-4 p-sm-6">
+      <Form className="rounded p-4 p-sm-6" onSubmit={()=> goTo('/table')}>
         <h3>Prisijungti</h3>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Control type="email" placeholder="El. pašto adresas" />
@@ -34,7 +36,9 @@ const LoginForm = () => {
         </p>
       </Form>
     </div>
-  );
-};
 
-export default LoginForm;
+  );
+
+}
+
+export default LoginForm
