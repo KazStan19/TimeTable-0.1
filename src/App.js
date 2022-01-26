@@ -1,4 +1,3 @@
-
 import React from "react";
 import Screen from "./component/Screen";
 import { Container } from "react-bootstrap";
