@@ -1,13 +1,17 @@
 import React from "react";
 import CreateForm from "./CreateForm";
 import { Row, Col } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Table = () => {
+  
+  const goTo = useNavigate()
+  
   return (
     <div className="mt-3 mb-3">
       <Row className="border gx-0 bg-light">
         <Col className="mx-3 my-2">
-          <button type="button" class="btn btn-primary">
+          <button type="button" className="btn btn-primary" onClick={()=>{goTo('/table/add')}}>
             Pridėti
           </button>
         </Col>
@@ -15,16 +19,16 @@ const Table = () => {
       <Row className="border gx-0 bg-light">
         <Col className="m-3 bg-light">Duomenų filtravimas: </Col>
         <Col className="m-3">
-          <select class="form-select-sm" aria-label="Default select example">
-            <option selected>--Pasirinkitę įmonę--</option>
+          <select className="form-select-sm" aria-label="Default select example">
+            <option defaultValue>--Pasirinkitę įmonę--</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
           </select>
         </Col>
         <Col className="m-3">
-          <select class="form-select-sm" aria-label="Default select example">
-            <option selected>--Pasirinkite paslaugą--</option>
+          <select className="form-select-sm" aria-label="Default select example">
+            <option defaultValue>--Pasirinkite paslaugą--</option>
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -66,7 +70,7 @@ const Table = () => {
       <Row className="border gx-0 bg-light">
         <Col className="mx-3 my-2">Pridėkitę atliktą darbą</Col>
       </Row>
-      <CreateForm />
+      
     </div>
   );
 };

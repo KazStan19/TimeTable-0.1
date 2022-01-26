@@ -1,8 +1,12 @@
 import React from "react";
 import { Form, FormControl, FloatingLabel } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 
 const CreateForm = () => {
+  
+  const goTo = useNavigate()
+  
   return (
      
     <Form className="createForm border">
@@ -48,7 +52,7 @@ const CreateForm = () => {
         Iki:
       </label>
       <FormControl className="m-3 w-75" type="time" />
-      <button type="button" className="btn btn-primary mx-3 mb-3">
+      <button onClick={()=>{goTo('/table')}} type="button" className="btn btn-primary mx-3 mb-3">
         Saugoti
       </button>
     </Form>
