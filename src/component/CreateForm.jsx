@@ -2,10 +2,12 @@ import React from 'react'
 import { Form } from 'react-bootstrap';
 import { FormControl } from 'react-bootstrap';
 import { FloatingLabel } from 'react-bootstrap';
+import FilterForm from './FilterForm';
 
 const CreateForm = () => {
     return (
         <div>
+            <FilterForm/>
             <Form>
                 <label className='m-1 ' htmlFor="">Pasirinkte datą:</label>
                 <FormControl className='my-2'
