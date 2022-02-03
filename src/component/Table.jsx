@@ -1,18 +1,47 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import CreateForm from "./CreateForm";
 import { Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 const Table = () => {
-  
+
   const goTo = useNavigate()
-  
+  //-------------------------------------------------------------------
+  const [login, setLogin] = useState(false)
+  let navigate = useNavigate();
+  const handleLogout = () => {
+    auth.signOut()
+    sessionStorage.removeItem('Auth Token');
+    navigate('/login')
+    console.log("logged out");
+  }
+  const auth = getAuth();
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // console.log("yes")
+        const uid = user.uid;
+        setLogin(true) //<<< memory leaker
+      } else {
+        navigate('/login')
+        // console.log("no")
+        //setLogin(false)<<< memory leaker
+      }
+    });
+  }, [])
+  //-------------------------------------------------------------------
   return (
+  
     <div className="mt-3 mb-3">
-      <Row className="border gx-0 bg-light">
+      {login ? <><Row className="border gx-0 bg-light">
         <Col className="mx-3 my-2">
-          <button type="button" className="btn btn-primary" onClick={()=>{goTo('/table/add')}}>
+          <button type="button" className="btn btn-primary" onClick={() => { goTo('/table/add') }}>
             Pridėti
+          </button>
+        </Col>
+        <Col className="mx-3 my-2">
+          <button type="button" className="btn btn-danger" onClick={handleLogout}>
+            Log Out
           </button>
         </Col>
       </Row>
@@ -69,9 +98,12 @@ const Table = () => {
 
       <Row className="border gx-0 bg-light">
         <Col className="mx-3 my-2">Pridėkitę atliktą darbą</Col>
-      </Row>
+      </Row></> : <></>}
+      
       
     </div>
+
+    
   );
 };
 
